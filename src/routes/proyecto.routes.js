@@ -8,7 +8,7 @@ import { actualizarProyecto } from "../controllers/proyecto.controller.js";
 
 const router = Router()
 
-
+// ruta para obtener todos los proyectos de la base de datos 
 router.post("/api/proyecto", crearProyecto);
 
 router.get("/api/proyecto", ontenerProyectos);

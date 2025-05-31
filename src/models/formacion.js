@@ -8,7 +8,7 @@ const FormacionSchema = new mongoose.Schema({
     descripcion : { type: String, required: true },
     fechaInicio : { type: Date },
     fechaFin : { type: Date, required: true },
-    url : { type: String, required: true },
+    url : { type: String, required: false },
     usuario: { type: mongoose.Schema.Types.ObjectId, ref: "Usuario" }
 })
 
