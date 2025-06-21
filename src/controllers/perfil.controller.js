@@ -30,8 +30,19 @@ export const crearPerfil = async (req, res) => {
 };
 
 // listar el perfil que se ha creado 
-export const colsultarPerfil = async (req, res) => {
-    try {
+// export const colsultarPerfil = async (req, res) => {
+//     try {
+
+//       const perfil = await Perfil.find()
+//       res.status(200).json(perfil);
+
+//     } catch (error){
+//        res.status(500).json({msg: "Error al obtener el perfil"})
+//     }
+// }
+
+export const consultarPerfilPublic = async (req, res) => {
+   try {
 
       const perfil = await Perfil.find()
       res.status(200).json(perfil);
@@ -39,7 +50,24 @@ export const colsultarPerfil = async (req, res) => {
     } catch (error){
        res.status(500).json({msg: "Error al obtener el perfil"})
     }
-}
+}  
+
+
+export const consultarPerfil = async (req, res) => {
+  try {
+    const perfil = await Perfil.findOne({ usuario: req.user.id })
+          .populate('usuario', 'email role');
+
+    if (!perfil) {
+      return res.status(404).json({ message: "Perfil no encontrado" });
+    }
+
+    res.status(200).json(perfil);
+  } catch (error) {
+    res.status(500).json({ message: "Error al obtener el perfil" });
+  }
+};
+
 
 
 // actualizar la informacion del perfil 
