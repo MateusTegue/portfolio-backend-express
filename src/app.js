@@ -12,8 +12,8 @@ const app = express();
 
 const corsOptions = {
     // origin: 'http://localhost:5173',
-    origin: 'https://portfolio-frontend-react-ten.vercel.app/', // Permite solicitudes desde este origen
-    credentials: true, // Permite enviar cookies/credenciales
+    origin: 'https://portfolio-frontend-react-rho.vercel.app', // este debe coincidir con el dominio ACTUAL
+    credentials: true,
 }
 
 app.use(cors(corsOptions));
