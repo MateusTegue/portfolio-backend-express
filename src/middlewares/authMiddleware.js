@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { TOKEN_SECRET } from "../config/token.js";
 const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
-  console.log("AuthHeader:", authHeader); // 👈 Muestra si el token llegó
+  console.log("AuthHeader:", authHeader); 
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return res.status(401).json({ message: "No autorizado" });
@@ -15,7 +15,7 @@ const authMiddleware = (req, res, next) => {
     req.user = { id: decoded.id };
     next();
   } catch (error) {
-    console.log("Token inválido", error.message); // 👈 si el token es malo
+    console.log("Token inválido", error.message); 
     return res.status(401).json({ message: "Token inválido" });
   }
 };
