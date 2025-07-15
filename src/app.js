@@ -12,7 +12,7 @@ const app = express();
 
 const corsOptions = {
     // origin: 'http://localhost:5173',
-    origin: 'https://portfolio-frontend-react-rho.vercel.app', // este debe coincidir con el dominio ACTUAL
+    origin: 'https://portfolio-frontend-react-rho.vercel.app', 
     credentials: true,
 }
 
