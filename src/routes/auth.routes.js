@@ -7,7 +7,7 @@ import { validateSchema } from "../middlewares/validator.middleware.js";
 const router = Router();
 
 
-// rutas para el login
+// rutas para el registro de usuarios 
 router.post("/api/register", validateSchema(createsuperuserSchema), crearUser);
 
 
