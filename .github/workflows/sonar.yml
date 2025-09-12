@@ -2,7 +2,7 @@ name: SonarQube Scan
 
 on:
   push:
-    branches: ["main"]
+    branches: ["dev"]
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -29,10 +29,10 @@ jobs:
         uses: sonarsource/sonarqube-scan-action@master
         with:
           args: >
-            -Dsonar.projectKey=mi-proyecto-express
-            -Dsonar.sources=.
+            -Dsonar.projectKey=TechSolutions77_portfolio-backend-express
+            -Dsonar.sources=./src
+            -Dsonar.organization=techsolutions77
             -Dsonar.exclusions=node_modules/**
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io 
