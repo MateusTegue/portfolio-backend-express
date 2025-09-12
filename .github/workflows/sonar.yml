@@ -1,0 +1,38 @@
+name: SonarQube Scan
+
+on:
+  push:
+    branches: ["dev"]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  sonarQube:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests and generate coverage
+        run: npm run test -- --coverage
+
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        with:
+          args: >
+            -Dsonar.projectKey=TechSolutions77_portfolio-backend-express
+            -Dsonar.sources=./src
+            -Dsonar.organization=techsolutions77
+            -Dsonar.exclusions=node_modules/**
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io 
