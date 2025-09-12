@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import blog from "../../models/blog.js";
 
 // elminar blog de la base de datos
