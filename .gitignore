@@ -1,2 +1,29 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Environment variables
 .env
+
+# Credentials (IMPORTANTE: No subir credenciales a Git)
+credentials/
+*.json
+!package.json
+!package-lock.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Uploads
+uploads/
